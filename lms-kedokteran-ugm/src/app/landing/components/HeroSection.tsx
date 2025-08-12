@@ -25,7 +25,7 @@ export default function HeroSection() {
           <div className="mt-6 flex gap-4">
             {/* Tombol Login */}
             <Link
-              href="#"
+              href="/login"
               className="bg-white text-black px-6 py-2 rounded-full shadow-md font-medium 
                hover:bg-green-400 hover:text-white transition duration-300"
             >
@@ -34,7 +34,7 @@ export default function HeroSection() {
 
             {/* Tombol Daftar */}
             <Link
-              href="#"
+              href="/register"
               className="bg-white text-black px-6 py-2 rounded-full shadow-md font-medium 
                hover:bg-yellow-400 hover:text-black transition duration-300"
             >

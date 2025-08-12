@@ -1,23 +1,19 @@
-// app/page.tsx
-'use client';
+"use client";
 
-import { useEffect } from 'react';
-import { useRouter } from 'next/navigation';
+import Harga from "./components/Harga";
+import HeroSection from "./components/HeroSection";
+import OurFeatures from "./components/OurFeatures";
+import OverviewLms from "./components/OverviewLms";
+import Pelatihan from "./components/Pelatihan";
 
-export default function HomePage() {
-  const router = useRouter();
-
-  useEffect(() => {
-    const token = localStorage.getItem('token'); // cek login
-    const visited = localStorage.getItem('visited'); // cek kunjungan pertama
-
-    if (token || visited) {
-      router.replace('/dashboard'); // user lama
-    } else {
-      localStorage.setItem('visited', 'true');
-      router.replace('/landing'); // user baru
-    }
-  }, [router]);
-
-  return null; // Tidak render apapun saat proses redirect
+export default function LandingPage() {
+  return (
+    <main className="bg-white">
+      <HeroSection />
+      <OurFeatures />
+      <OverviewLms />
+      <Harga />
+      <Pelatihan/>
+    </main>
+  );
 }

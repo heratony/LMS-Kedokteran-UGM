@@ -1,23 +1,23 @@
-// app/page.tsx
 'use client';
 
 import { useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 
-export default function HomePage() {
+export default function RootPage() {
   const router = useRouter();
 
   useEffect(() => {
-    const token = localStorage.getItem('token'); // cek login
-    const visited = localStorage.getItem('visited'); // cek kunjungan pertama
+    const visited = localStorage.getItem('visited');
 
-    if (token || visited) {
-      router.replace('/dashboard'); // user lama
+    if (visited) {
+      // Sudah pernah lihat landing page
+      router.replace('/login');
     } else {
+      // Pertama kali
       localStorage.setItem('visited', 'true');
-      router.replace('/landing'); // user baru
+      router.replace('/landing');
     }
   }, [router]);
 
-  return null; // Tidak render apapun saat proses redirect
+  return null; // Tidak render apapun
 }

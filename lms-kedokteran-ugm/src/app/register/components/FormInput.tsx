@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { RadioGroup } from './RadioGroup'; 
-import { RegisterFormProps} from './RegisterForm'; 
+import { RegisterForm} from './RegisterForm'; 
 
 interface FormInputProps {
   id: string;
@@ -106,7 +106,7 @@ export const RegisterForm: React.FC<RegisterFormProps> = ({
 
         {/* Gender Section */}
         <div>
-          <h4 className="text-sm font-medium text-gray-700 mb-3">Gender</h4>
+          <h4 className="text-sm font-medium text-gray-700 mb-3">Jenis Kelamin</h4>
           <RadioGroup
             name="gender"
             options={genderOptions}

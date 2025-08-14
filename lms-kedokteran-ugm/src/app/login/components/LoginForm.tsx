@@ -40,7 +40,7 @@ export const LoginForm: React.FC<LoginFormProps> = ({
           className={`flex-1 py-2 px-4 rounded-md text-sm font-medium transition-colors ${
             loginType === 'user'
               ? 'bg-white text-black'
-              : 'text-gray-600 '
+              : 'text-gray-600'
           }`}
         >
           Login as User
@@ -50,7 +50,7 @@ export const LoginForm: React.FC<LoginFormProps> = ({
           onClick={() => onLoginTypeChange('admin')}
           className={`flex-1 py-2 px-4 rounded-md text-sm font-medium transition-colors ${
             loginType === 'admin'
-              ? 'bg-white text-gray-900 shadow-sm'
+              ? 'bg-white text-black shadow-sm'
               : 'text-gray-600 hover:text-gray-900'
           }`}
         >
@@ -61,7 +61,7 @@ export const LoginForm: React.FC<LoginFormProps> = ({
       <div className="text-center mb-8">
         <h2 className="text-2xl font-bold text-gray-900">Masuk Sekarang!</h2>
         <p className="text-gray-600 mt-2 flex items-center justify-center">
-          Hi, Welcome back 
+          Hi, Welcome back
           <span className="ml-1 text-lg">👋</span>
         </p>
       </div>
@@ -69,16 +69,23 @@ export const LoginForm: React.FC<LoginFormProps> = ({
       <form onSubmit={handleSubmit} className="space-y-6">
         {/* Email/Username Input */}
         <div>
-          <label htmlFor={loginType === 'admin' ? 'username' : 'email'} className="block text-sm font-medium text-gray-700 mb-2">
+          <label
+            htmlFor={loginType === 'admin' ? 'username' : 'email'}
+            className="block text-sm font-medium text-gray-700 mb-2"
+          >
             {loginType === 'admin' ? 'Username' : 'Email'}
           </label>
           <input
             type={loginType === 'admin' ? 'text' : 'email'}
             id={loginType === 'admin' ? 'username' : 'email'}
             value={loginType === 'admin' ? username : email}
-            onChange={(e) => loginType === 'admin' ? setUsername(e.target.value) : setEmail(e.target.value)}
+            onChange={(e) =>
+              loginType === 'admin'
+                ? setUsername(e.target.value)
+                : setEmail(e.target.value)
+            }
             placeholder={loginType === 'admin' ? 'Enter your username' : 'Enter your email'}
-            className="w-full px-4 py-3 border border-gray-300 rounded-lg "
+            className="w-full px-4 py-3 border border-gray-300 rounded-lg text-black placeholder-gray-500 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors"
             required
           />
         </div>
@@ -95,7 +102,7 @@ export const LoginForm: React.FC<LoginFormProps> = ({
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               placeholder="Enter your password"
-              className="w-full px-4 py-3 pr-12 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors"
+              className="w-full px-4 py-3 pr-12 border border-gray-300 rounded-lg text-black placeholder-gray-500 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors"
               required
             />
             <button
@@ -158,8 +165,7 @@ export const LoginForm: React.FC<LoginFormProps> = ({
               className="text-blue-600 hover:text-blue-500 font-medium"
             >
               Create an account
-            </button>
-            {' '}
+            </button>{' '}
             <button
               type="button"
               onClick={onCreateAccount}
